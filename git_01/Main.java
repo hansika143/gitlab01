@@ -56,11 +56,14 @@ public class Main {
     }
 
     static void deleteStudent(String name) {
-        if (students.remove(name)) {
-            System.out.println(name + " removed.");
-        } else {
-            System.out.println(name + " not found.");
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).equalsIgnoreCase(name)) {
+                String removedName = students.remove(i);
+                System.out.println(removedName + " removed.");
+                return;
+            }
         }
+        System.out.println(name + " not found.");
     }
 
     static void countStudents() {
